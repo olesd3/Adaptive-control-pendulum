@@ -5,6 +5,7 @@ l = 0.1;
 g = 9.81;
 a = [m*l^2; beta; m*g*l];
 noise_power = (0.1* pi/180)^2;
+tau_q = 0.1;
 
 q_0 = 20 * pi/180;
 qdot_0 = 50 * pi/180;
@@ -30,6 +31,7 @@ qd_freq_rad = 2*pi*f;
 
 Gamma = diag([1,10,10]);
 a_hat_0 = 10*a; %[1; 1; 1];
+sigma = 0.1;
 Kp = 6;
 Kd = 1;
 lambda = Kp/Kd;
