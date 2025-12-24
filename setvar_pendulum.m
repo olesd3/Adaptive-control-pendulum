@@ -28,9 +28,24 @@ T = 1.5;
 f = 1/T;
 qd_freq_rad = 2*pi*f;
 
+% State estimation
+tau_KF = m*l^2/beta *5;
+A_c_KF = [0 1;
+          0 -1/tau_KF];
+B_c_KF = [];
+C_KF = [1 0];
+D_KF = [];
+% sys_c = ss(A_c_KF, B_c_KF, C_KF, D_KF)
+% sysd = c2d(sys_c, h_KF)
 
-Gamma = diag([1,10,10]);
-a_hat_0 = 10*a; %[1; 1; 1];
+G_KF = [0;
+     1/tau_KF];
+R_KF = noise_power;
+Q_KF = 1e-3;
+
+
+Gamma = diag([0.1,1,1]);
+a_hat_0 = 1*a; %[1; 1; 1];
 sigma = 0.1;
 Kp = 6;
 Kd = 1;
