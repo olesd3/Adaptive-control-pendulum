@@ -28,7 +28,7 @@ T = 1.5;
 f = 1/T;
 qd_freq_rad = 2*pi*f;
 
-
+% Adaptive law
 Gamma = diag([1,10,10]);
 a_hat_0 = 10*a; %[1; 1; 1];
 sigma = 0.1;
