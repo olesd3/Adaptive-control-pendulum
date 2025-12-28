@@ -1,3 +1,5 @@
+
+
 %% Model parameters and initial conditions
 m = 0.2;
 beta = 0.05;
@@ -29,9 +31,11 @@ f = 1/T;
 qd_freq_rad = 2*pi*f;
 
 % Adaptive law
+h_Adapt = 0.0001;
 Gamma = diag([1,10,10]);
+Gamma_discrete = diag([1,10,10])*h_Adapt;
 a_hat_0 = 10*a; %[1; 1; 1];
 sigma = 0.1;
 Kp = 6;
-Kd = 1;
+Kd = m*l^2 * 20;
 lambda = Kp/Kd;
